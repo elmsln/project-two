@@ -71,13 +71,13 @@ export class LearningCard extends LitElement {
   // HTML - specific to Lit
   render() {
     return html`
-    <div>cool</div>
+    <h1>cool</h1>
     <div>${this.type}</div>
       <div>
         <slot name="header"></slot>
-        <img part="icon" src="../assets/beaker.svg"/>
+        <img part="icon" src="../assets/beaker.svg" alt=""/>
         <img part="icon" src="../assets/lightbulb.svg"/>
-        <img part="icon" src="../assets/question.svg"/>
+        <img part="icon" src="../assets/question.svg" alt=""/>
         <slot></slot>
       </div>
     `;
