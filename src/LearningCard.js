@@ -1,6 +1,14 @@
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
 
+// this is the base path to the assets calculated at run time
+// this ensures that assets are shipped correctly when building the demo
+// on github pages, or when people reuse assets outside your elements in production
+// because this won't change we can leverage as an internal variable without being
+// declared in properties. This let's us ship the icons while referencing them correctly
+const beaker = new URL('../assets/beaker.svg', import.meta.url).href;
+const lightbulb = new URL('../assets/lightbulb.svg', import.meta.url).href;
+const question = new URL('../assets/question.svg', import.meta.url).href;
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
 export class LearningCard extends LitElement {
@@ -13,16 +21,6 @@ export class LearningCard extends LitElement {
     super();
     this.myIcon = null;
     this.type = 'math';
-    // this is the base path to the assets calculated at run time
-    // this ensures that assets are shipped correctly when building the demo
-    // on github pages, or when people reuse assets outside your elements in production
-    // because this won't change we can leverage as an internal variable without being
-    // declared in properties. This let's us ship the icons while referencing them correctly
-    this.assetPaths = {
-      beaker: new URL('../assets/beaker.svg', import.meta.url).href,
-      lightbulb: new URL('../assets/lightbulb.svg', import.meta.url).href,
-      question: new URL('../assets/question.svg', import.meta.url).href
-    };
   }
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
   static get properties() {
@@ -87,9 +85,9 @@ export class LearningCard extends LitElement {
       <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
         <slot name="header"></slot>
       </div>
-      <img part="icon" src="${this.assetPaths.beaker}" alt=""/>
-      <img part="icon" src="${this.assetPaths.lightbulb}"/>
-      <img part="icon" src="${this.assetPaths.question}" alt=""/>
+      <img part="icon" src="${beaker}" alt=""/>
+      <img part="icon" src="${lightbulb}" />
+      <img part="icon" src="${question}" alt=""/>
       <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
         <slot name="content"></slot>
         <slot></slot>
