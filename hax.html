@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 50px;
+      font-family: sans-serif;
+    }
+    .hax-wrapper {
+      margin: 100px;
+    }
+  </style>
+  <title>project-two: HAX integration</title>
+  <script>
+    window.process = window.process || {
+      env: {
+        NODE_ENV: "production"
+      }
+    };
+  </script>
+  <script src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>    
+  <script src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
+  <script src="../../../node_modules/web-animations-js/web-animations-next-lite.min.js"></script>
+  <script type="module">
+    import "./src/app.js";
+    import "@lrnwebcomponents/h-a-x/h-a-x.js";
+    import("@polymer/polymer/lib/utils/settings.js").then((esModule) => {
+      esModule.setPassiveTouchGestures(true);
+    });
+  </script>
+</head>
+
+<body>
+  <ul>
+    <li><a href="index.html">Card demo</a></li>
+    <li><a href="hax.html" disabled>HAX, card demo</a></li>
+  </ul>
+  <div class="hax-wrapper">
+    <h-a-x app-store='{"url": "assets/appstore.json"}' element-align="right">
+      <p>Cool stuff. Let's write about spongebob!</p>
+      <grid-plate layout="1-1-1">
+      <meme-maker slot="col-1" alt="happy dance GIF by SpongeBob SquarePants" image-url="https://media0.giphy.com/media/nDSlfqf0gn5g4/giphy.gif" bottom-text="We Are" top-text="Ready">
+      </meme-maker>
+      <meme-maker slot="col-2" alt="happy dance GIF by SpongeBob SquarePants" image-url="https://media0.giphy.com/media/nDSlfqf0gn5g4/giphy.gif" bottom-text="We Are" top-text="Ready">
+      </meme-maker>
+      <meme-maker slot="col-3" alt="happy dance GIF by SpongeBob SquarePants" image-url="https://media0.giphy.com/media/nDSlfqf0gn5g4/giphy.gif" bottom-text="We Are" top-text="Ready">
+      </meme-maker>
+      </grid-plate>
+      <p>Cool stuff. Let's write about spongebob!</p>
+    </h-a-x>
+  </div>
+</body>
+
+</html>
