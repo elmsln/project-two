@@ -11,9 +11,20 @@
     html,
     body {
       margin: 0;
-      padding: 0;
+      padding: 50px;
       font-family: sans-serif;
-      background-color: #ededed;
+    }
+    .wrapper {
+      margin: 100px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .menu li {
+      display: inline-flex;
+      font-weight: bold;
+      padding: 40px;
     }
     learning-card.two::part(icon) {
       --learning-card-height: 150px;
@@ -29,13 +40,15 @@
 </head>
 
 <body>
-  <ul>
-    <li><a href="index.html">Card demo</a></li>
-    <li><a href="hax.html">HAX, card demo</a></li>
+  <ul class="menu">
+    <li><a href="#">Card demo</a></li>
+    <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
-  <learning-card class="one"></learning-card>
-  <learning-card class="two"></learning-card>
-  <learning-card type="science"></learning-card>
+  <div class="wrapper">
+    <learning-card class="one"></learning-card>
+    <learning-card class="two"></learning-card>
+    <learning-card type="science"></learning-card>
+  </div>
   <script type="module">
     import "./src/app.js";
   </script>

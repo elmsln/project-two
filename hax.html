@@ -10,11 +10,20 @@
     html,
     body {
       margin: 0;
-      padding: 50px;
       font-family: sans-serif;
     }
     .hax-wrapper {
       margin: 100px;
+      padding: 50px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .menu li {
+      display: inline-flex;
+      font-weight: bold;
+      padding: 40px;
     }
   </style>
   <title>project-two: HAX integration</title>
@@ -38,9 +47,9 @@
 </head>
 
 <body>
-  <ul>
-    <li><a href="index.html">Card demo</a></li>
-    <li><a href="hax.html" disabled>HAX, card demo</a></li>
+  <ul class="menu">
+    <li><a href="/index.html">Card demo</a></li>
+    <li><a href="#" disabled>HAX, card demo</a></li>
   </ul>
   <div class="hax-wrapper">
     <h-a-x app-store='{"url": "assets/appstore.json"}' element-align="right">

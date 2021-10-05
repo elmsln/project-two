@@ -18,7 +18,11 @@ export class LearningCard extends LitElement {
     // on github pages, or when people reuse assets outside your elements in production
     // because this won't change we can leverage as an internal variable without being
     // declared in properties. This let's us ship the icons while referencing them correctly
-    this.baseAssetsPath = new URL('../assets', import.meta.url).href;
+    this.assetPaths = {
+      beaker: new URL('../assets/beaker.svg', import.meta.url).href,
+      lightbulb: new URL('../assets/lightbulb.svg', import.meta.url).href,
+      question: new URL('../assets/question.svg', import.meta.url).href
+    };
   }
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
   static get properties() {
@@ -81,9 +85,9 @@ export class LearningCard extends LitElement {
     <div>${this.type}</div>
       <div>
         <slot name="header"></slot>
-        <img part="icon" src="${this.baseAssetsPath}/beaker.svg" alt=""/>
-        <img part="icon" src="${this.baseAssetsPath}/lightbulb.svg"/>
-        <img part="icon" src="${this.baseAssetsPath}/question.svg" alt=""/>
+        <img part="icon" src="${this.assetPaths.beaker}" alt=""/>
+        <img part="icon" src="${this.assetPaths.lightbulb}"/>
+        <img part="icon" src="${this.assetPaths.question}" alt=""/>
         <slot></slot>
       </div>
     `;
