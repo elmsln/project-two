@@ -83,13 +83,63 @@ export class LearningCard extends LitElement {
     return html`
     <h1>cool</h1>
     <div>${this.type}</div>
-      <div>
+    <div>
+      <div class="slot-wrapper" data-label="Header" data-layout-slotname="header">
         <slot name="header"></slot>
-        <img part="icon" src="${this.assetPaths.beaker}" alt=""/>
-        <img part="icon" src="${this.assetPaths.lightbulb}"/>
-        <img part="icon" src="${this.assetPaths.question}" alt=""/>
+      </div>
+      <img part="icon" src="${this.assetPaths.beaker}" alt=""/>
+      <img part="icon" src="${this.assetPaths.lightbulb}"/>
+      <img part="icon" src="${this.assetPaths.question}" alt=""/>
+      <div class="slot-wrapper" data-label="Content" data-layout-slotname="content">
+        <slot name="content"></slot>
         <slot></slot>
       </div>
+    </div>
     `;
+  }
+  // HAX specific callback
+  // This teaches HAX how to edit and work with your web component
+  /**
+   * haxProperties integration via file reference
+   */
+   static get haxProperties() {
+    return {
+      canScale: false,
+      canPosition: false,
+      canEditSource: true,
+      contentEditable: true,
+      gizmo: {
+        title: "Learning Card",
+        description: "An element that you have to replace / fix / improve",
+        icon: "credit-card",
+        color: "blue",
+        groups: ["Content", "Presentation", "Education"],
+      },
+      settings: {
+        configure: [
+          {
+            property: "type",
+            title: "Type",
+            description: "Identifies the card",
+            inputMethod: "select",
+            options: {
+              science: "Science",
+              math: "Math",
+            }
+          },
+        ],
+        advanced: [
+        ],
+      },
+      demoSchema: [
+        {
+          tag: LearningCard.tag,
+          properties: {
+            type: "science"
+          },
+          content: "<p slot='header'>This tag renders in the header</p><ul><li>This renders</li><li>Below the tag</li></ul>"
+        }
+      ]
+    };
   }
 }
