@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import '../src/app.js';
 
 export default {
@@ -9,7 +9,8 @@ export default {
   },
 };
 
-function Template({ type, slot }) {
+
+function Template({ type = "math", slot }) {
   return html`
     <learning-card type="${type}">
     ${slot}
@@ -21,5 +22,5 @@ export const Card = Template.bind({});
 export const ScienceCard = Template.bind({});
 ScienceCard.args = {
   type: 'science',
-  slot: html`<p>slot stuff</p>`
+  slot: html`<p>slotted content that should render</p>`
 };

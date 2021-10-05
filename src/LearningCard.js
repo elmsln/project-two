@@ -13,6 +13,12 @@ export class LearningCard extends LitElement {
     super();
     this.myIcon = null;
     this.type = 'math';
+    // this is the base path to the assets calculated at run time
+    // this ensures that assets are shipped correctly when building the demo
+    // on github pages, or when people reuse assets outside your elements in production
+    // because this won't change we can leverage as an internal variable without being
+    // declared in properties. This let's us ship the icons while referencing them correctly
+    this.baseAssetsPath = new URL('../assets', import.meta.url).href;
   }
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
   static get properties() {
@@ -75,9 +81,9 @@ export class LearningCard extends LitElement {
     <div>${this.type}</div>
       <div>
         <slot name="header"></slot>
-        <img part="icon" src="../assets/beaker.svg" alt=""/>
-        <img part="icon" src="../assets/lightbulb.svg"/>
-        <img part="icon" src="../assets/question.svg" alt=""/>
+        <img part="icon" src="${this.baseAssetsPath}/beaker.svg" alt=""/>
+        <img part="icon" src="${this.baseAssetsPath}/lightbulb.svg"/>
+        <img part="icon" src="${this.baseAssetsPath}/question.svg" alt=""/>
         <slot></slot>
       </div>
     `;
