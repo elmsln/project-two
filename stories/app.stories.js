@@ -16,8 +16,10 @@ function Template({ type, slot }) {
     </learning-card>
   `;
 }
-
 export const Card = Template.bind({});
-Card.args = {
+
+export const ScienceCard = Template.bind({});
+ScienceCard.args = {
   type: 'science',
+  slot: html`<p>slot stuff</p>`
 };
