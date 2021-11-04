@@ -13,6 +13,7 @@
     "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
     "test": "web-test-runner --coverage",
     "test:watch": "web-test-runner --watch",
+    "postinstall": "patch-package",
     "storybook": "npm run analyze -- --exclude dist && web-dev-server -c .storybook/server.mjs",
     "storybook:build": "npm run analyze -- --exclude dist && build-storybook",
     "build": "rimraf dist && rollup -c rollup.config.js && npm run analyze -- --exclude dist",
@@ -22,9 +23,22 @@
   },
   "dependencies": {
     "lit": "^2.0.0",
-    "@lrnwebcomponents/simple-colors": "^4.0.1"
+    "@lrnwebcomponents/simple-colors": "^4.0.1",
+    "@table-in-the-corner/project-two": "^0.0.1",
+    "@3b4b/project-two": "^1.0.0",
+    "@thekodingkrab/project-two": "^0.0.1",
+    "@ist-402-group-1/project-two": "^0.0.1",
+    "@penstat2/penstat-project2": "^0.0.2",
+    "@ist402groupf/learning-card": "^0.0.1",
+    "@viable-slime/slime-card": "^0.0.2",
+    "@paddyshub/project-two": "^0.0.1",
+    "@runtimeerrorsmadeeasy/project-two": "^0.1.1",
+    "@ist402group19j/project-two": "^0.0.1",
+    "@ist402/pj2card": "^0.0.1",
+    "@viable-slime/the-easy-button": "^0.0.2"
   },
   "devDependencies": {
+    "patch-package": "6.4.7",
     "@babel/preset-env": "^7.15.6",
     "@custom-elements-manifest/analyzer": "^0.4.17",
     "@open-wc/building-rollup": "^1.10.0",

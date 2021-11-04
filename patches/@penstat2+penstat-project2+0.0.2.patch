@@ -1,0 +1,42 @@
+diff --git a/node_modules/@penstat2/penstat-project2/src/LearningCard.js b/node_modules/@penstat2/penstat-project2/src/LearningCard.js
+index 7497cfd..dfd0acd 100644
+--- a/node_modules/@penstat2/penstat-project2/src/LearningCard.js
++++ b/node_modules/@penstat2/penstat-project2/src/LearningCard.js
+@@ -9,7 +9,7 @@ const arrow = new URL('../assets/arrow.svg', import.meta.url).href;
+ export class LearningCard extends LitElement {
+   // a convention I enjoy so you can change the tag name in 1 place
+   static get tag() {
+-    return 'learning-card';
++    return 'penstat2-card';
+   }
+ 
+   // HTMLElement life-cycle, built in; use this for setting defaults
+diff --git a/node_modules/@penstat2/penstat-project2/stories/app.stories.js b/node_modules/@penstat2/penstat-project2/stories/app.stories.js
+index 400a8cb..dfbe17e 100644
+--- a/node_modules/@penstat2/penstat-project2/stories/app.stories.js
++++ b/node_modules/@penstat2/penstat-project2/stories/app.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
+-  component: 'learning-card',
++  title: 'penstat2',
++  component: 'penstat2-card',
+   argTypes: {
+     type: {
+       control: 'radio',
+@@ -20,11 +20,11 @@ export default {
+ 
+ function Template({ type = 'math', headingSlot, subheadingSlot, slot }) {
+   return html`
+-    <learning-card type="${type}">
++    <penstat2-card type="${type}">
+       <div slot="header">${headingSlot}</div>
+       <div slot="subheader">${subheadingSlot}</div>
+       ${slot}
+-    </learning-card>
++    </penstat2-card>
+   `;
+ }
+ 

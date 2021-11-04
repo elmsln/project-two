@@ -1,0 +1,214 @@
+diff --git a/node_modules/@ist402groupf/learning-card/src/LearningBanner.js b/node_modules/@ist402groupf/learning-card/src/LearningBanner.js
+index 6fc8128..b7ad980 100644
+--- a/node_modules/@ist402groupf/learning-card/src/LearningBanner.js
++++ b/node_modules/@ist402groupf/learning-card/src/LearningBanner.js
+@@ -14,7 +14,7 @@ export class LearningBanner extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-banner';
++    return 'group-f-banner';
+   }
+ 
+   static get properties() {
+@@ -68,7 +68,7 @@ export class LearningBanner extends SimpleColors {
+     return html`
+       <div id="learningBanner" class="grid-container">
+         <div id="icon">
+-          <learning-icon type="${this.type}"></learning-icon>
++          <group-f-icon type="${this.type}"></group-f-icon>
+         </div>
+         <div id="header">
+           <h1 slot="top-header">${this.topText}</h1>
+diff --git a/node_modules/@ist402groupf/learning-card/src/LearningCard.js b/node_modules/@ist402groupf/learning-card/src/LearningCard.js
+index e17b294..c6227da 100644
+--- a/node_modules/@ist402groupf/learning-card/src/LearningCard.js
++++ b/node_modules/@ist402groupf/learning-card/src/LearningCard.js
+@@ -15,7 +15,7 @@ import './LearningScaffold.js';
+ export class LearningCard extends LitElement {
+   // a convention I enjoy so you can change the tag name in 1 place
+   static get tag() {
+-    return 'learning-card';
++    return 'group-f-card';
+   }
+ 
+   // HTMLElement life-cycle, built in; use this for setting defaults
+@@ -99,18 +99,18 @@ export class LearningCard extends LitElement {
+   */
+   render() {
+     return html`
+-      <learning-scaffold>
++      <group-f-scaffold>
+         <div slot="header">
+-          <learning-banner
++          <group-f-banner
+             type="${this.type}"
+             topText="${this.topText}"
+             bottomText="${this.bottomText}"
+-          ></learning-banner>
++          ></group-f-banner>
+         </div>
+         <div class="content" slot="body">
+           <slot></slot>
+         </div>
+-      </learning-scaffold>
++      </group-f-scaffold>
+     `;
+   }
+ 
+diff --git a/node_modules/@ist402groupf/learning-card/src/LearningIcon.js b/node_modules/@ist402groupf/learning-card/src/LearningIcon.js
+index 58051f0..968e2de 100644
+--- a/node_modules/@ist402groupf/learning-card/src/LearningIcon.js
++++ b/node_modules/@ist402groupf/learning-card/src/LearningIcon.js
+@@ -14,7 +14,7 @@ export class LearningIcon extends SimpleColors {
+     }
+ 
+     static get tag() {
+-        return 'learning-icon';
++        return 'group-f-icon';
+     }
+ 
+     static get properties() {
+diff --git a/node_modules/@ist402groupf/learning-card/src/LearningScaffold.js b/node_modules/@ist402groupf/learning-card/src/LearningScaffold.js
+index 98a3ae3..0b63b64 100644
+--- a/node_modules/@ist402groupf/learning-card/src/LearningScaffold.js
++++ b/node_modules/@ist402groupf/learning-card/src/LearningScaffold.js
+@@ -8,7 +8,7 @@ export class LearningScaffold extends SimpleColors {
+     }
+ 
+     static get tag() {
+-        return 'learning-scaffold';
++        return 'group-f-scaffold';
+     }
+ 
+     static get properties() {
+diff --git a/node_modules/@ist402groupf/learning-card/stories/LearningBanner.stories.js b/node_modules/@ist402groupf/learning-card/stories/LearningBanner.stories.js
+index f3e4339..3d1f051 100644
+--- a/node_modules/@ist402groupf/learning-card/stories/LearningBanner.stories.js
++++ b/node_modules/@ist402groupf/learning-card/stories/LearningBanner.stories.js
+@@ -4,9 +4,9 @@ import '../src/LearningIcon.js';
+ 
+ export default {
+     //how to refer to the component in the sidebar
+-    title: 'Learning Banner',
++    title: 'group-f',
+     //component itself
+-    component: 'learning-banner',
++    component: 'group-f-banner',
+     argTypes:{
+         type: {
+             control: 'select',
+@@ -21,8 +21,8 @@ export default {
+ 
+ function LearningBannerTemplate({type, topText, bottomText}) {
+     return html`
+-      <learning-banner type="${type}" topText="${topText}" bottomText="${bottomText}">
+-      </learning-banner>
++      <group-f-banner type="${type}" topText="${topText}" bottomText="${bottomText}">
++      </group-f-banner>
+     `;
+   }
+ 
+diff --git a/node_modules/@ist402groupf/learning-card/stories/LearningCard.stories.js b/node_modules/@ist402groupf/learning-card/stories/LearningCard.stories.js
+index adc29b0..987deca 100644
+--- a/node_modules/@ist402groupf/learning-card/stories/LearningCard.stories.js
++++ b/node_modules/@ist402groupf/learning-card/stories/LearningCard.stories.js
+@@ -3,8 +3,8 @@ import {html} from 'lit-html';
+ import '../src/LearningCard.js';
+ 
+ export default {
+-    title: 'Learning Card',
+-    component: 'learning-card',
++    title: 'group-f',
++    component: 'group-f-card',
+     argTypes: {
+         slot: {control: 'text'},
+         type: {
+@@ -20,9 +20,9 @@ export default {
+ 
+ function LearningCardTemplate({slot, topText, bottomText, type}){
+     return html`
+-    <learning-card type="${type}" topText="${topText}" bottomText="${bottomText}">
++    <group-f-card type="${type}" topText="${topText}" bottomText="${bottomText}">
+     ${slot}
+-    </learning-card>
++    </group-f-card>
+     `
+ }
+ 
+diff --git a/node_modules/@ist402groupf/learning-card/stories/LearningIcon.stories.js b/node_modules/@ist402groupf/learning-card/stories/LearningIcon.stories.js
+index 6a1dd9b..d6163e4 100644
+--- a/node_modules/@ist402groupf/learning-card/stories/LearningIcon.stories.js
++++ b/node_modules/@ist402groupf/learning-card/stories/LearningIcon.stories.js
+@@ -3,8 +3,8 @@ import {html} from 'lit-html';
+ import '../src/LearningIcon.js';
+ 
+ export default {
+-    title: 'Learning Icon',
+-    component: 'learning-icon',
++    title: 'group-f',
++    component: 'group-f-icon',
+     argTypes: {
+         type:{
+             control: 'select',
+@@ -21,7 +21,7 @@ function LearningIconTemplate({type}) {
+     //added background-color: grey because icon is white
+     return html `
+     <div style="background-color: grey;">
+-    <learning-icon type="${type}"></learning-icon>
++    <group-f-icon type="${type}"></group-f-icon>
+     </div>`
+ }
+ 
+diff --git a/node_modules/@ist402groupf/learning-card/stories/LearningScaffold.stories.js b/node_modules/@ist402groupf/learning-card/stories/LearningScaffold.stories.js
+index 0e96118..62480e8 100644
+--- a/node_modules/@ist402groupf/learning-card/stories/LearningScaffold.stories.js
++++ b/node_modules/@ist402groupf/learning-card/stories/LearningScaffold.stories.js
+@@ -3,16 +3,16 @@ import { html } from 'lit-html';
+ import '../src/LearningScaffold.js';
+ 
+ export default {
+-    title: 'Learning Scaffold',
+-    component: 'learning-scaffold',
++    title: 'group-f',
++    component: 'group-f-scaffold',
+ };
+ 
+ function LearningScaffoldTemplate({header, body}){
+     return html`
+-    <learning-scaffold>
++    <group-f-scaffold>
+     <div slot="header">${header}</div>
+     <div slot="body">${body}</div>
+-    </learning-scaffold>
++    </group-f-scaffold>
+     `
+ };
+ 
+diff --git a/node_modules/@ist402groupf/learning-card/stories/app.stories.js b/node_modules/@ist402groupf/learning-card/stories/app.stories.js
+index 9b5d68e..9f2f083 100644
+--- a/node_modules/@ist402groupf/learning-card/stories/app.stories.js
++++ b/node_modules/@ist402groupf/learning-card/stories/app.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
+-  component: 'learning-card',
++  title: 'group-f',
++  component: 'group-f-card',
+   argTypes: {
+     type: { control: 'text' },
+   },
+@@ -12,9 +12,9 @@ export default {
+ 
+ function Template({ type = "math", slot }) {
+   return html`
+-    <learning-card type="${type}">
++    <group-f-card type="${type}">
+     ${slot}
+-    </learning-card>
++    </group-f-card>
+   `;
+ }
+ export const Card = Template.bind({});

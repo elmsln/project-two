@@ -1,0 +1,42 @@
+diff --git a/node_modules/@table-in-the-corner/project-two/src/CardFrame.js b/node_modules/@table-in-the-corner/project-two/src/CardFrame.js
+index 569d976..17a2307 100644
+--- a/node_modules/@table-in-the-corner/project-two/src/CardFrame.js
++++ b/node_modules/@table-in-the-corner/project-two/src/CardFrame.js
+@@ -3,7 +3,7 @@ import './SciCard.js';
+ 
+ export class CardFrame extends LitElement {
+   static get tag() {
+-    return 'card-frame';
++    return 'tableinthecorner-frame';
+   }
+ 
+   constructor() {
+diff --git a/node_modules/@table-in-the-corner/project-two/stories/app.stories.js b/node_modules/@table-in-the-corner/project-two/stories/app.stories.js
+index 023a9bd..1bc258e 100644
+--- a/node_modules/@table-in-the-corner/project-two/stories/app.stories.js
++++ b/node_modules/@table-in-the-corner/project-two/stories/app.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
+-  component: 'sci-card',
++  title: 'tableinthecorner',
++  component: 'tableinthecorner-card',
+   argTypes: {
+     type: {
+       options: ['objective', 'science', 'fact'],
+@@ -20,11 +20,11 @@ export default {
+ 
+ function Template({ type = 'science', header, subheader, slot }) {
+   return html`
+-    <card-frame type=${type}>
++    <tableinthecorner-frame type=${type}>
+       <div slot="header">${header}</div>
+       <div slot="subheader">${subheader}</div>
+       ${slot}
+-    </card-frame>
++    </tableinthecorner-frame>
+   `;
+ }
+ 

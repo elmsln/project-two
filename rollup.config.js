@@ -21,7 +21,13 @@ export default {
     /** Enable using HTML as rollup entrypoint */
     html({
       minify: true,
-      transformHtml: [html => html.replace('<base href="/">', '<base href="/project-two/">')],
+      transformHtml: [
+        htmlHackyThing =>
+          htmlHackyThing.replace(
+            '<base href="/">',
+            '<base href="/project-two/">'
+          ),
+      ],
       injectServiceWorker: true,
       serviceWorkerPath: 'dist/sw.js',
     }),
@@ -30,7 +36,9 @@ export default {
     /** Minify JS */
     terser(),
     /** Bundle assets references via import.meta.url */
-    importMetaAssets(),
+    importMetaAssets({
+      warnOnError: true,
+    }),
     /** Compile JS to a lower language target */
     babel({
       babelHelpers: 'bundled',

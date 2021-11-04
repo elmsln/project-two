@@ -1,0 +1,104 @@
+diff --git a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningCard.js b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningCard.js
+index 576041b..6f03856 100644
+--- a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningCard.js
++++ b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningCard.js
+@@ -10,7 +10,7 @@ const question = new URL('../assets/question.svg', import.meta.url).href;
+ 
+ export class LearningCard extends LitElement {
+   static get tag() {
+-    return 'learning-card';
++    return 'runtimeerrorsmadeeasy-card';
+   }
+ 
+   constructor() {
+@@ -129,23 +129,23 @@ export class LearningCard extends LitElement {
+           class="cardBanner"
+           style="--learning-card-banner-color: ${this.bannerColor}"
+         >
+-          <learning-icon icon=${this.myIcon}></learning-icon>
+-          <learning-header>
++          <runtimeerrorsmadeeasy-icon icon=${this.myIcon}></runtimeerrorsmadeeasy-icon>
++          <runtimeerrorsmadeeasy-header>
+             <div slot="main-header">
+               <slot name="header" style="">Main Header</slot>
+             </div>
+             <div slot="sub-header">
+               <slot name="subheader">Sub Header</slot>
+             </div>
+-          </learning-header>
++          </runtimeerrorsmadeeasy-header>
+         </div>
+         <div class="cardContentContainer">
+           <div class="textContainer">
+-            <learning-content>
++            <runtimeerrorsmadeeasy-content>
+               <div slot="paragraph-format">
+                 <slot name="paragraph">Paragraph</slot>
+               </div>
+-            </learning-content>
++            </runtimeerrorsmadeeasy-content>
+           </div>
+           <div class="buttonContainer" name="button">
+             <cta-button
+diff --git a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningContent.js b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningContent.js
+index c9d1a7e..f742379 100644
+--- a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningContent.js
++++ b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningContent.js
+@@ -9,7 +9,7 @@ export class LearningContent extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-content';
++    return 'runtimeerrorsmadeeasy-content';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningHeader.js b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningHeader.js
+index 207ae5b..789456c 100644
+--- a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningHeader.js
++++ b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningHeader.js
+@@ -9,7 +9,7 @@ export class LearningHeader extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-header';
++    return 'runtimeerrorsmadeeasy-header';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningIcon.js b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningIcon.js
+index b3e204e..ca17593 100644
+--- a/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningIcon.js
++++ b/node_modules/@runtimeerrorsmadeeasy/project-two/src/learningIcon.js
+@@ -13,7 +13,7 @@ export class LearningIcon extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-icon';
++    return 'runtimeerrorsmadeeasy-icon';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@runtimeerrorsmadeeasy/project-two/stories/app.stories.js b/node_modules/@runtimeerrorsmadeeasy/project-two/stories/app.stories.js
+index cfd4058..d2b8093 100644
+--- a/node_modules/@runtimeerrorsmadeeasy/project-two/stories/app.stories.js
++++ b/node_modules/@runtimeerrorsmadeeasy/project-two/stories/app.stories.js
+@@ -2,15 +2,15 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
+-  component: 'learning-card',
++  title: 'runtimeerrorsmadeeasy',
++  component: 'runtimeerrorsmadeeasy-card',
+   argTypes: {
+     type: { control: 'text' },
+   },
+ };
+ 
+ function Template({ type = 'math', slot }) {
+-  return html` <learning-card type="${type}"> ${slot} </learning-card> `;
++  return html` <runtimeerrorsmadeeasy-card type="${type}"> ${slot} </runtimeerrorsmadeeasy-card> `;
+ }
+ export const MathCard = Template.bind({});
+ 

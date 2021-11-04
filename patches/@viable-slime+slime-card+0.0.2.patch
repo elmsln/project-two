@@ -1,0 +1,25 @@
+diff --git a/node_modules/@viable-slime/slime-card/src/app.js b/node_modules/@viable-slime/slime-card/src/app.js
+index bed5c4b..fdc4f6f 100644
+--- a/node_modules/@viable-slime/slime-card/src/app.js
++++ b/node_modules/@viable-slime/slime-card/src/app.js
+@@ -9,7 +9,6 @@ customElements.define(SlimeIcon.tag, SlimeIcon);
+ customElements.define(SlimeHeader.tag, SlimeHeader);
+ customElements.define(SlimeBody.tag, SlimeBody);
+ customElements.define(SlimeCard.tag, SlimeCard);
+-customElements.define('easy-button',EasyButton);
+ 
+ 
+ 
+diff --git a/node_modules/@viable-slime/slime-card/stories/app.stories.js b/node_modules/@viable-slime/slime-card/stories/app.stories.js
+index 9b5d68e..3eb9140 100644
+--- a/node_modules/@viable-slime/slime-card/stories/app.stories.js
++++ b/node_modules/@viable-slime/slime-card/stories/app.stories.js
+@@ -2,7 +2,7 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
++  title: 'Project',
+   component: 'learning-card',
+   argTypes: {
+     type: { control: 'text' },

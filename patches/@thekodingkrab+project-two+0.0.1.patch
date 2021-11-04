@@ -1,0 +1,13 @@
+diff --git a/node_modules/@thekodingkrab/project-two/stories/app.stories.js b/node_modules/@thekodingkrab/project-two/stories/app.stories.js
+index 8d35cea..518b944 100644
+--- a/node_modules/@thekodingkrab/project-two/stories/app.stories.js
++++ b/node_modules/@thekodingkrab/project-two/stories/app.stories.js
+@@ -2,7 +2,7 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
++  title: 'Project',
+   component: 'lrn-card',
+   argTypes: {
+     type: {

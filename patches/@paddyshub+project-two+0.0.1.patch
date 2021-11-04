@@ -1,0 +1,47 @@
+diff --git a/node_modules/@paddyshub/project-two/src/LearningCard.js b/node_modules/@paddyshub/project-two/src/LearningCard.js
+index c316cee..b0ebd8d 100644
+--- a/node_modules/@paddyshub/project-two/src/LearningCard.js
++++ b/node_modules/@paddyshub/project-two/src/LearningCard.js
+@@ -16,7 +16,7 @@ const question = new URL('../assets/question.svg', import.meta.url).href;
+ export class LearningCard extends LitElement {
+   // a convention I enjoy so you can change the tag name in 1 place
+   static get tag() {
+-    return 'learning-card';
++    return 'paddyshub-card';
+   }
+ 
+   // HTMLElement life-cycle, built in; use this for setting defaults
+diff --git a/node_modules/@paddyshub/project-two/stories/app.stories.js b/node_modules/@paddyshub/project-two/stories/app.stories.js
+index b5f8f0d..922f53e 100644
+--- a/node_modules/@paddyshub/project-two/stories/app.stories.js
++++ b/node_modules/@paddyshub/project-two/stories/app.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
+-  component: 'learning-card',
++  title: 'paddyshub',
++  component: 'paddyshub-card',
+   argTypes: {
+     type: { control: 'text' },
+   },
+@@ -12,15 +12,15 @@ export default {
+ 
+ function Template({ type = "math", slot }) {
+   return html`
+-    <learning-card type="${type}">
++    <paddyshub-card type="${type}">
+     ${slot}
+-    </learning-card>
++    </paddyshub-card>
+   `;
+ }
+ export const Card = Template.bind({});
+ 
+ export const ScienceCard = Template.bind({});
+ ScienceCard.args = {
+-  type: 'science',
++  type: 'chem connection',
+   slot: html`<p>slotted content that should render</p>`
+ };

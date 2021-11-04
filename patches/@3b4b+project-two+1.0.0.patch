@@ -1,0 +1,242 @@
+diff --git a/node_modules/@3b4b/project-two/index.html b/node_modules/@3b4b/project-two/index.html
+index 9a15e56..d647411 100644
+--- a/node_modules/@3b4b/project-two/index.html
++++ b/node_modules/@3b4b/project-two/index.html
+@@ -35,7 +35,7 @@
+         font-weight: bold;
+         padding: 40px;
+       }
+-      learning-card.two::part(icon) {
++      group-3b4b-card.two::part(icon) {
+         --learning-card-height: 150px;
+         --learning-card-width: 150px;
+         background-color: blue;
+@@ -51,7 +51,7 @@
+     </ul>
+     <div class="wrapper">
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+-      <learning-card type="chem" header="Unit 1">
++      <group-3b4b-card type="chem" header="Unit 1">
+         <ul slot="content">
+           <li>Describe the subatomic particles that make up an atom</li>
+           <li>
+@@ -65,12 +65,12 @@
+           </li>
+         </ul>
+         <circle-button-fj title="Help" description="Click here" link="https://quizlet.com/latest" slot="content"></circle-button-fj>
+-      </learning-card>
+-      <learning-card type="know" header="Unit 2">
++      </group-3b4b-card>
++      <group-3b4b-card type="know" header="Unit 2">
+         <p slot="content">Testing paragraph</p>
+         <circle-button-fj title="Help" description="Click here" link="https://quizlet.com/latest" slot="content"></circle-button-fj>
+-      </learning-card>
+-      <learning-card type="objectives" header="Unit 1">
++      </group-3b4b-card>
++      <group-3b4b-card type="objectives" header="Unit 1">
+         <div slot="content">
+           <ul>
+             <li>Describe the subatomic particles that make up an atom</li>
+@@ -85,8 +85,8 @@
+             </li>
+           </ul>
+         </div>
+-      </learning-card>
+-      <learning-card type="default test">
++      </group-3b4b-card>
++      <group-3b4b-card type="default test">
+         <div slot="content">
+           <ul>
+             <li>Describe the subatomic particles that make up an atom</li>
+@@ -101,7 +101,7 @@
+             </li>
+           </ul>
+         </div>
+-      </learning-card>
++      </group-3b4b-card>
+ 
+     </div>
+     <script type="module">
+diff --git a/node_modules/@3b4b/project-two/src/LearningBanner.js b/node_modules/@3b4b/project-two/src/LearningBanner.js
+index 2a8291f..22a003f 100644
+--- a/node_modules/@3b4b/project-two/src/LearningBanner.js
++++ b/node_modules/@3b4b/project-two/src/LearningBanner.js
+@@ -9,7 +9,7 @@ export class LearningBanner extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-banner';
++    return 'group-3b4b-banner';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@3b4b/project-two/src/LearningCard.js b/node_modules/@3b4b/project-two/src/LearningCard.js
+index 7eb3b47..c297243 100644
+--- a/node_modules/@3b4b/project-two/src/LearningCard.js
++++ b/node_modules/@3b4b/project-two/src/LearningCard.js
+@@ -6,7 +6,7 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
+ 
+ export class LearningCard extends IntersectionObserverMixin(SimpleColors) {
+   static get tag() {
+-    return 'learning-card';
++    return 'group-3b4b-card';
+   }
+ 
+   constructor() {
+@@ -166,20 +166,20 @@ export class LearningCard extends IntersectionObserverMixin(SimpleColors) {
+     return html`
+       ${this.elementVisible
+         ? html` <div class="entire-card">
+-            <learning-scaffold type=${this.type}>
++            <group-3b4b-scaffold type=${this.type}>
+               <div slot="banner">
+-                <learning-banner type=${this.type} slot="banner">
+-                  <learning-icon type=${this.type} slot="icon"></learning-icon>
++                <group-3b4b-banner type=${this.type} slot="banner">
++                  <group-3b4b-icon type=${this.type} slot="icon"></group-3b4b-icon>
+                   <h2 class="main-header" slot="heading">${this.header}</h2>
+                   <h3 class="sub-header" slot="subHeading">
+                     ${this.subheader}
+                   </h3>
+-                </learning-banner>
++                </group-3b4b-banner>
+               </div>
+               <div slot="content" class="content">
+                 <slot name="content"></slot>
+               </div>
+-            </learning-scaffold>
++            </group-3b4b-scaffold>
+           </div>`
+         : ``}
+     `;
+diff --git a/node_modules/@3b4b/project-two/src/LearningIcon.js b/node_modules/@3b4b/project-two/src/LearningIcon.js
+index 9d085d6..8d1fd62 100644
+--- a/node_modules/@3b4b/project-two/src/LearningIcon.js
++++ b/node_modules/@3b4b/project-two/src/LearningIcon.js
+@@ -15,7 +15,7 @@ export class LearningIcon extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-icon';
++    return 'group-3b4b-icon';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@3b4b/project-two/src/LearningScaffold.js b/node_modules/@3b4b/project-two/src/LearningScaffold.js
+index 113167e..6285c22 100644
+--- a/node_modules/@3b4b/project-two/src/LearningScaffold.js
++++ b/node_modules/@3b4b/project-two/src/LearningScaffold.js
+@@ -9,7 +9,7 @@ export class LearningScaffold extends SimpleColors {
+   }
+ 
+   static get tag() {
+-    return 'learning-scaffold';
++    return 'group-3b4b-scaffold';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@3b4b/project-two/stories/LearningBanner.stories.js b/node_modules/@3b4b/project-two/stories/LearningBanner.stories.js
+index 97a718f..1911766 100644
+--- a/node_modules/@3b4b/project-two/stories/LearningBanner.stories.js
++++ b/node_modules/@3b4b/project-two/stories/LearningBanner.stories.js
+@@ -4,8 +4,8 @@ import '../src/LearningBanner.js';
+ import '../src/LearningIcon.js';
+ 
+ export default {
+-  title: 'Learning Banner',
+-  component: 'learning-banner',
++  title: 'group-3b4b',
++  component: 'group-3b4b-banner',
+   argTypes: {
+     heading: { control: 'text' },
+     type: {
+@@ -21,11 +21,11 @@ export default {
+ 
+ function LearningBannerTemplate({ type, heading }) {
+   return html`
+-    <learning-banner type=${type} slot="banner">
+-      <learning-icon type=${type} slot="icon"></learning-icon>
++    <group-3b4b-banner type=${type} slot="banner">
++      <group-3b4b-icon type=${type} slot="icon"></group-3b4b-icon>
+       <h2 slot="heading">${heading}</h2>
+       <h3 slot="subHeading">${type}</h3>
+-    </learning-banner>
++    </group-3b4b-banner>
+   `;
+ }
+ 
+diff --git a/node_modules/@3b4b/project-two/stories/LearningCard.stories.js b/node_modules/@3b4b/project-two/stories/LearningCard.stories.js
+index 7eb7ea2..57077bc 100644
+--- a/node_modules/@3b4b/project-two/stories/LearningCard.stories.js
++++ b/node_modules/@3b4b/project-two/stories/LearningCard.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Learning Card',
+-  component: 'learning-card',
++  title: 'group-3b4b',
++  component: 'group-3b4b-card',
+   argTypes: {
+     slot: { control: 'text' },
+     heading: { control: 'text' },
+@@ -25,9 +25,9 @@ export default {
+ // Learning Card
+ function LearningCardTemplate({ type, slot, heading }) {
+   return html`
+-    <learning-card type="${type}" header="${heading}">
++    <group-3b4b-card type="${type}" header="${heading}">
+       <div slot="content">${slot}</div>
+-    </learning-card>
++    </group-3b4b-card>
+   `;
+ }
+ 
+diff --git a/node_modules/@3b4b/project-two/stories/LearningIcon.stories.js b/node_modules/@3b4b/project-two/stories/LearningIcon.stories.js
+index 17138f7..a86bb43 100644
+--- a/node_modules/@3b4b/project-two/stories/LearningIcon.stories.js
++++ b/node_modules/@3b4b/project-two/stories/LearningIcon.stories.js
+@@ -3,8 +3,8 @@ import { html } from 'lit-html';
+ import '../src/LearningIcon.js';
+ 
+ export default {
+-  title: 'Learning Icon',
+-  component: 'learning-icon',
++  title: 'group-3b4b',
++  component: 'group-3b4b-icon',
+   argTypes: {
+     type: {
+       control: 'select',
+@@ -20,7 +20,7 @@ export default {
+ // Learning Icon
+ function LearningIconTemplate({ type }) {
+   return html` <div style="background-color: black;">
+-    <learning-icon type=${type}></learning-icon>
++    <group-3b4b-icon type=${type}></group-3b4b-icon>
+   </div>`;
+ }
+ 
+diff --git a/node_modules/@3b4b/project-two/stories/LearningScaffold.stories.js b/node_modules/@3b4b/project-two/stories/LearningScaffold.stories.js
+index 8fc53c8..9a6725a 100644
+--- a/node_modules/@3b4b/project-two/stories/LearningScaffold.stories.js
++++ b/node_modules/@3b4b/project-two/stories/LearningScaffold.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Learning Scaffold',
+-  component: 'learning-scaffold',
++  title: 'group-3b4b',
++  component: 'group-3b4b-scaffold',
+   argTypes: {
+     type: {
+       control: 'select',
+@@ -18,7 +18,7 @@ export default {
+ 
+ // This is going to display nothing???? So why have it?
+ function LearningScaffoldTemplate({ type = 'LEARNING OBJECTIVES' }) {
+-  return html` <learning-scaffold type=${type}> </learning-scaffold> `;
++  return html` <group-3b4b-scaffold type=${type}> </group-3b4b-scaffold> `;
+ }
+ 
+ export const LearningScaffold = LearningScaffoldTemplate.bind({});

@@ -1,0 +1,123 @@
+diff --git a/node_modules/@ist-402-group-1/project-two/src/LearningCard.js b/node_modules/@ist-402-group-1/project-two/src/LearningCard.js
+index ebe471e..15f488d 100644
+--- a/node_modules/@ist-402-group-1/project-two/src/LearningCard.js
++++ b/node_modules/@ist-402-group-1/project-two/src/LearningCard.js
+@@ -5,7 +5,7 @@ import './learning-banner.js';
+ 
+ export class LearningCard extends LitElement {
+   static get tag() {
+-    return 'learning-card';
++    return 'group-1-card';
+   }
+ 
+   constructor() {
+@@ -105,15 +105,15 @@ export class LearningCard extends LitElement {
+   // HTML - specific to Lit
+   render() {
+     return html`
+-      <learning-scaffold>
+-        <learning-banner slot="banner" type=${this.type}>
++      <group-1-scaffold>
++        <group-1-banner slot="banner" type=${this.type}>
+           <h2 class="header" slot="header">${this.header}</h2>
+           <h3 class="subheader" slot="subheader">${this.subheader}</h3>
+-        </learning-banner>
+-        <learning-body slot="body">
++        </group-1-banner>
++        <group-1-body slot="body">
+           <slot></slot>
+-        </learning-body>
+-      </learning-scaffold>
++        </group-1-body>
++      </group-1-scaffold>
+     `;
+   }
+ 
+diff --git a/node_modules/@ist-402-group-1/project-two/src/LearningScaffold.js b/node_modules/@ist-402-group-1/project-two/src/LearningScaffold.js
+index 2a0139b..c48e06b 100644
+--- a/node_modules/@ist-402-group-1/project-two/src/LearningScaffold.js
++++ b/node_modules/@ist-402-group-1/project-two/src/LearningScaffold.js
+@@ -3,7 +3,7 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
+ 
+ export class LearningScaffold extends SimpleColors {
+   static get tag() {
+-    return 'learning-scaffold';
++    return 'group-1-scaffold';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@ist-402-group-1/project-two/src/learning-banner.js b/node_modules/@ist-402-group-1/project-two/src/learning-banner.js
+index 81382e6..749bf3c 100644
+--- a/node_modules/@ist-402-group-1/project-two/src/learning-banner.js
++++ b/node_modules/@ist-402-group-1/project-two/src/learning-banner.js
+@@ -4,7 +4,7 @@ import './learning-icon.js';
+ 
+ export class LearningBanner extends SimpleColors {
+   static get tag() {
+-    return 'learning-banner';
++    return 'group-1-banner';
+   }
+ 
+   static get properties() {
+@@ -75,7 +75,7 @@ export class LearningBanner extends SimpleColors {
+   render() {
+     return html`
+       <div class="iconArea">
+-        <learning-icon type="${this.type}"></learning-icon>
++        <group-1-icon type="${this.type}"></group-1-icon>
+       </div>
+       <div class="headerArea">
+         <slot name="header"></slot>
+diff --git a/node_modules/@ist-402-group-1/project-two/src/learning-body.js b/node_modules/@ist-402-group-1/project-two/src/learning-body.js
+index 8767af1..ae67ebf 100644
+--- a/node_modules/@ist-402-group-1/project-two/src/learning-body.js
++++ b/node_modules/@ist-402-group-1/project-two/src/learning-body.js
+@@ -3,7 +3,7 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors/simple-colors.js';
+ 
+ export class LearningBody extends SimpleColors {
+   static get tag() {
+-    return 'learning-body';
++    return 'group-1-body';
+   }
+ 
+   static get styles() {
+diff --git a/node_modules/@ist-402-group-1/project-two/src/learning-icon.js b/node_modules/@ist-402-group-1/project-two/src/learning-icon.js
+index fbdad31..1476c44 100644
+--- a/node_modules/@ist-402-group-1/project-two/src/learning-icon.js
++++ b/node_modules/@ist-402-group-1/project-two/src/learning-icon.js
+@@ -7,7 +7,7 @@ const question = new URL('../assets/question.svg', import.meta.url).href;
+ 
+ export class LearningIcon extends SimpleColors {
+   static get tag() {
+-    return 'learning-icon';
++    return 'group-1-icon';
+   }
+ 
+   static get properties() {
+diff --git a/node_modules/@ist-402-group-1/project-two/stories/app.stories.js b/node_modules/@ist-402-group-1/project-two/stories/app.stories.js
+index ab99e69..28d3028 100644
+--- a/node_modules/@ist-402-group-1/project-two/stories/app.stories.js
++++ b/node_modules/@ist-402-group-1/project-two/stories/app.stories.js
+@@ -2,8 +2,8 @@ import { html } from 'lit-html';
+ import '../src/app.js';
+ 
+ export default {
+-  title: 'Project two',
+-  component: 'learning-card',
++  title: 'group-1',
++  component: 'group-1-card',
+   argTypes: {
+     type: { control: 'text' },
+   },
+@@ -11,9 +11,9 @@ export default {
+ 
+ function Template({ type = 'science', slot, header, subheader }) {
+   return html`
+-    <learning-card type="${type}" header="${header}" subheader="${subheader}">
++    <group-1-card type="${type}" header="${header}" subheader="${subheader}">
+       ${slot}
+-    </learning-card>
++    </group-1-card>
+   `;
+ }
+ 
