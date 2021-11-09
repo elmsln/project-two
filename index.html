@@ -57,40 +57,256 @@
   <script type="module">
     import "./src/app.js";
     /**
-@table-in-the-corner/project-two
-https://github.com/table-in-the-corner/project-two
+    @table-in-the-corner/project-two
+    https://github.com/table-in-the-corner/project-two
+    19/20
+    Overall: Excellent implementation. Clean visually and mobile. Very interesting implementation
+    of listening on resize and then auto collapsing the content area. Some syntax issues in media queries
+    and your calling of a dynamic import() while importing the item above it already (card w/ icon in it)
+    attempts to hit a bonus section but falls a bit short.
 
-@3b4b/project-two
-https://github.com/3B4B/project-two
+    There's some mix ups between icon, myIcon, accentColor and the statefulness of when and how to best
+    pass that down between elements. It's important to try and have a single source of truth here and
+    if you switch everything to use 'type' as that source of truth it helps. Also using the css vars
+    of simple colors via the accent color (used in the PR) you'll get the color you want without
+    manually setting the css variable in the template.
 
-@thekodingkrab/project-two
-https://github.com/TheKodingKrab/project-two
+    I also have mixed feelings about the click to expand capability. For example, I like the text on
+    the card face and want to select it. I click to select the text or double click and now I'm opening
+    and closing the card over and over. Earlier comps I saw you have had a button to press that did the
+    same effect.
 
-@ist-402-group-1/project-two
-https://github.com/IST-402-Group-1/project-two
+    -1 A few typos and state issues though they don't influence the design. Overall a very impressive element
+    and with minor enhancements / refactoring we could use this in production with minimal additional effort.
 
-@penstat2/penstat-project2
-https://github.com/PenStat/penstat-project2
+    I'm going to issue a PR that has all the code changes I would have cleaned up so you can see exactly
+    How I would have cleaned some things up.
 
-@ist402groupf/learning-card
-https://github.com/IST402-Group-F/Project-2-Card
+    https://github.com/table-in-the-corner/project-two/pull/18
 
-@viable-slime/slime-card
-https://github.com/Viable-Slime/easy-card
 
-@paddyshub/project-two
-https://github.com/PaddysHub/project-two
+    @3b4b/project-two
+    https://github.com/3B4B/project-two
+    21.4/20 🏆
+    Overall: Code is very well written, simple, and refined. Very little
+    that I had to remove in order to give feedback for this and I only broke
+    things out below because you had multiple - and + events.
 
-@runtimeerrorsmadeeasy/project-two
-https://github.com/runtimeErrorsMadeEasy/project2
+    subheader in LearningCard is not translatable which wasn't part of this
+    assignment but a consideration worth thinking about going into the last
+    submission. Scaffold I also gutted just to illustrate how little is needed here.
 
-@ist402group19j/project-two
-https://github.com/ist402groupj/project-two
+    LearningCard's use of circle-button-fj isn't wrong but could have been matched
+    with a ::slotted(*) still, impressive use of contextually applied CSS. +.25 and
+    nice simple CSS responsiveness overall with regard to window resize. Clicking
+    the button has a very small nudge to the padding in the card so that it visually
+    moves things based on the button depressing. Not terrible but as you account for
+    it in the design via slotting, room for improvement there as well.
 
-@ist402/pj2card
-https://github.com/IST402/pj2temp
+    See PR for changes I would have made beyond this but a really strong offering
+    in solution of the problem.
 
-*/ 
+    PR: https://github.com/3B4B/project-two/pull/48
+
+    Detail breakdown:
+    -.1 syntax error in demo script type="text/javascript"
+    -.25 CSS syntax error
+    -.5 A11y error in icon
+    +.5 laziload implemented correctly
+    +.5 test added and a lot of robust tests
+    +1 for multiple storybooks for each element
+    +.25 - impressive use of css for circle-button-fj slotting
+    
+    
+    @thekodingkrab/project-two
+    https://github.com/TheKodingKrab/project-two
+    19.65/20
+    Overview:
+    Some minor clean up in the dynamic import. You don't need the full import
+    as well as the dynamic import() in the same space. Just the import() is
+    enough here. mainheader and subheader are not translatable but nice work
+    in the card using type to set them accordinately. the slot thesubheader will allow
+    for overriding the output to fix that but mainheader doesn't have that fallback.
+
+    Nice implementation in the card banner to use type to reflect to set color.
+    This is a very clever, clean implementation. I don't care for the iconWidth and
+    iconHeight method though it is implemented correctly.
+
+    list-style-image: url('../assets/beaker.svg'); is not needed
+    font-size: xxx-large; is a weird way to do this that I didn't know worked and
+    doesn't have a way of influencing so some CSS variables to influence that would be nice
+    
+    Element defaults to closed because you need <details open> in order to
+    default it open. Either it needs pegged to a variable in the element
+    OR you just leave it open. Otherwise there isn't anything visually
+    to indicate that it is clickable to expand.
+
+    Overall a really clean implementation that I honestly only had to make
+    a few minor changes to to make it more like something I'd build out.
+    It could use some more work into responsive design as it breaks down
+    a bit via mobile / responsiveness but otherwise this is a grea implementation.
+
+    PR: https://github.com/TheKodingKrab/project-two/pull/36
+
+    Detail breakdown:
+    -.1 .yarn directory should be ignored given that it has a massive cache payload
+    -.25 element defaults closed which is an a11y issue.
+
+
+    @ist-402-group-1/project-two
+    https://github.com/IST-402-Group-1/project-two
+    19.4/20
+    Overview:
+    lol awesome demo page with sound effects. I had to actually play the 1st
+    one a lot to see if that was my voice. Nice progressive enhancement
+    there with the integration into the card (I know that was your last one but still).
+
+    Simple but effective media query / responsive design, automated tests
+    and storybooks are effective. learning-scaffold tag is created but not
+    imported. It's used in the shadowRoot but it's just going to behave
+    like a div tag because the definition isn't imported. This would
+    involve other points off however you already made 4 elements WITHOUT this
+    so good there still on that requirement.
+
+    Otherwise a very strong implementation with very little for me to clean
+    up in the PR I am issuing for additional enhancements I could have made.
+    Consistent clean use of slots, the type variable, CSS variables and reflecting
+    attributes for styling changes / reuse.
+
+    Nice attempt on the hax part but you were overthinking it. The joke
+    message is a solid save and so your score gets +0 but there's still
+    a plus sign involved ;)
+
+    PR: https://github.com/IST-402-Group-1/project-two/pull/11
+
+    Detail breakdown:
+    -.5 A11y error in icon
+    -.1 element created, used, but definition not implemented
+    
+    @penstat2/penstat-project2
+    https://github.com/PenStat/penstat-project2
+    19.15/20
+    Overview:
+    CardIcon has an a11y issue if this.alt was implemented, but it isn't. So it's just hanging around
+    Syntax errors in the Icon to make it appear correct, however when I fix these issues in the CSS
+    it ends up making the icon take on baackground colors and colors that are not expected.
+    It also had haxProperties which were not implemented and should have been removed.
+
+    ToggleContent visibility state is a little clunky. Avoiding the use of reflected properties yet
+    basically achieving same thing through event listeners. While not wrong, there would be no reactivity
+    if I was to try and programatically open the collapse or set it's default state. Thus the content
+    is ALWAYS collapsed and not able to be in a open by default state which would be an improvement in the
+    overall UX / A11y of the material. By default other than an arrow there's no real indication of expanding
+    the content and because the effect is applied to an img tag I can't grab a tabindex. As a result this is
+    a pretty major accessibility error. The expand is an interesting visual effect which could use a mode
+    for disabling the bounce effect based on user preference in a media query.
+
+    I did a lot of reworking on the toggle to be accessible, data reactive and open by default so please
+    look to those changes. Overall this is a well made element that implemented HAX and a lot of tests while
+    also matching the design and requirements well. Also good job not leaving a lot of excess code behind unused.
+
+    PR: https://github.com/PenStat/penstat-project2/pull/50
+
+    Detail breakdown:
+    -.5 syntax errors in CSS of icon
+    -.25 a11y issue w/ alt if it was implemented; not implemented though which is still some off
+    -1 major accessibility issue with the arrow and content of the card.
+    +.5 HIGHLY detailed tests and very professional
+    +.4 Card wired up to HAX, minor issue in slot in demoSchema (<p> or other wrapping for perfect usage)
+
+    
+    @ist402groupf/learning-card
+    https://github.com/IST402-Group-F/Project-2-Card
+    20/20
+    Overview:
+    Nice work getting chain selectors working to do deep querying in the shadowRoot's for automated testing
+    and reasonable tests (5 of them). The stories look good and you did all of them so +1 there. Initial look
+    at the card is visually clean and supports 3 different types that match the comp (purple might be diff color but meh).
+
+    topText and bottomText can't be changed by the user which is unfortunate and is not translatable or able to
+    be changed via slots. <h1 slot="top-header">${this.topText}</h1> in learning-banner does nothing for example
+    as you'd need <h1><slot name="top-header">.... as well as compositing for it to pass down. You do get compositing
+    correct elsewhere but shoot for users being able to override the implementation to set slot="..." in the demo /
+    top level element.
+
+    Overall looks correct, nothing fancy but gets the job done and very little code to remove. Also watch for
+    blank ...super.properties statements when there's nothing being extending as well as empty methods that
+    just call super.whatever.
+
+    PR: https://github.com/IST402-Group-F/Project-2-Card/pull/13
+    
+    Detail breakdown:
+    -.5 for no named slots at top level for implementing in design
+    -.5 properties can't update the title headings
+    +1 for stories for all elements correctly
+
+    
+    @viable-slime/slime-card
+    https://github.com/Viable-Slime/easy-card
+
+    Overview:
+    17/20 
+    Storybook only somewhat works and I had to change the import reference to import '@viable-slime/the-easy-button/easy-button.js';
+    instead of how it was imported. While working outside of storybook fine, you should have debugged that a bit more.
+
+    tests pass except 2 which failed on my local bc of the address having a different port. You've got a good idea though
+    with that style test. contains would net you more consistent results. Also:
+    element.shadowRoot.childNodes[2].childNodes[3].childNodes[3] is... VERY brittle and VERY brute force
+
+    slime-icon hsa a firstUpdated call that is wrapped in super so it wont run without the super running. iconHeight
+    and iconWidth are weird ways of setting this value but are possible. this.icon_value = new Map();  is a very
+    intersting way of doing this but you don't need the type : Map part as it's not valid in Lit and your this.type
+    will ensure that things update appropriately.
+
+    slime-headar had a syntax error in the CSS -.1
+    toggle in the slime-card needs a ?toggle="${this.toggle}" to set the value correctly as a boolean -.1
+    this.shadowRoot.getElementById("click-target") is not valid, needs to be this.shadowRoot.querySelector("#click-target") -.1
+    slot pases down correctly but there are no named slots for additional flexibility -.2
+
+    All the toggle / click stuff doesn't work. It was not a requirement of the element however there's a lot of code that
+    is broken / does nothing as a result -.5
+
+    type should be setting icon AND color though accentColor is passed around and works correctly regardless
+
+    Decent visual matching of the comp. It lacks some polish of others and has some issues internally with code to
+    clean up but over all a nice job getting the compositing and all the elements working together.
+
+    PR: https://github.com/Viable-Slime/easy-card/pull/4
+
+    Detailed feedback:
+    -2 storybook knobs mapped but not all work also had an error where it wouldn't load at all.
+    -.5 for things identified throughout overview
+    -.5 toggle / other non-functioning code
+
+    
+    @runtimeerrorsmadeeasy/project-two
+    https://github.com/runtimeErrorsMadeEasy/project2
+
+    Overview:
+    17.5/20
+    Nice work on the responsive aspect in the demo. Storybook settings are weak at best but function -1
+    Test bed is a mix. There are MANY tests which is great but 3 of the tests have the camel case implementation
+    of the class as opposed to web component. For example header.test.js has <learningHeader> as opposed to learning-header
+    Fixing this to run the tests causes 1 test to fail per file yet they are good otherwise. -.25
+    Weird defaults for showing content in slotted areas. While it works, just sorta weird to do in this case
+    as you could have easily just used the index.html to have the content slotted in (1st demo shows this) -.25
+
+    Element matches comp and has an easy to implement "type" driven API. Colors forcibly set are not using the
+    accentColor from simple colors and then things using SimpleColors sorta just implement the clas but not
+    really using the colors from it in any meaningful way -.5
+    myIcon is a weird var name, could just be icon. Good use of CSS variables
+
+    slot names with <slot name="paragraph-format"> and bullet-list and number-list are akward. Could have
+    accomplished the same thing with just <slot> or <slot name="content"> so user could pass in whatever
+      they defined as opposed to specifically using bullet, etc. -.5
+
+    Overall a good offering that has room for improvement in slotting and some overall polish but otherwise
+    is a good representation of the composite and leverages slot composition appropriately.
+
+    PR: https://github.com/runtimeErrorsMadeEasy/project2/pull/21
+
+
+    */ 
   </script>
 </body>
 
